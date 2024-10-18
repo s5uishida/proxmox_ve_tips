@@ -15,9 +15,9 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 - [When starting MongoDB, an illegal instruction occurs and MongoDB crashes](#mongodb_crash)
 - [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
 - [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
+- [Filesystem mount option](#mount_opt)
 - [Selecting the cache type for disk](#select_disk_cache_type)
 - [Selecting the disk format type when creating a VM](#select_disk_format_type)
-- [Filesystem mount option](#mount_opt)
 - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
@@ -46,6 +46,13 @@ If an error occurs on VM in related to Secure Boot, try selecting `SeaBIOS` in t
 
 <img src="./images/pve_edit_bios.png" title="./images/pve_edit_bios.png" width=250px></img>
 
+<a id="mount_opt"></a>
+
+## Filesystem mount option
+
+I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
+And not using swap. Also, I have configured as the same for VMs.
+
 <a id="select_disk_cache_type"></a>
 
 ## Selecting the cache type for disk
@@ -71,13 +78,6 @@ Also turn on `SSD emulation`.
 When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
 
 <img src="./images/pve_disk.png" title="./images/pve_disk.png" width=600px></img>
-
-<a id="mount_opt"></a>
-
-## Filesystem mount option
-
-I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
-And not using swap. Also, I have configured as the same for VMs.
 
 <a id="virtio_nic"></a>
 
