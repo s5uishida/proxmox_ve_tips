@@ -77,7 +77,7 @@ When creating a VM, the disk format type `Raw disk image (raw)` is a little fast
 
 For maximum performance, a VirtIO paravirtualized NIC is recommended.
 You may use the network with DPDK and XDP on a Linux OS that supports VirtIO.
-For example, you may use N3 and N6 interfaces with [UPG-VPP](https://github.com/travelping/upg-vpp) (with DPDK) or [eUPF](https://github.com/edgecomllc/eupf) (eBPF/XDP) on VirtIO.
+For example, you may use N3 and N6 interfaces with [UPG-VPP](https://github.com/travelping/upg-vpp) (with DPDK) or [eUPF](https://github.com/edgecomllc/eupf) (eBPF/XDP native driver mode) on VirtIO.
 
 A quick measurement using iperf3  on a VirtIO network between two Ubuntu 24.04 VMs on a Proxmox VE machine with an Intel Core-i5 10400 CPU showed the following results:
 
