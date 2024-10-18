@@ -48,7 +48,8 @@ If an error occurs on VM in related to Secure Boot, try selecting `SeaBIOS` in t
 
 ## Selecting the cache type for disk
 
-For the cache type of disk, recommend `Write back` for HDD and `Write back (unsafe)` for SSD.
+For the cache type of disk, `Write back` for HDD is a little faster than `Write back (unsafe)`.
+`Write back (unsafe)` for SSD is a little faster than `Write back`.
 It is also recommended to turn on the `IO thread`.
 
 **For HDD**
