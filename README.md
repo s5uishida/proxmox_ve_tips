@@ -77,7 +77,7 @@ When creating a VM, the disk format type `Raw disk image (raw)` is a little fast
 ## Filesystem mount option
 
 I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
-And not using swap.
+And not using swap. Also, I have configured as the same for VMs.
 
 <a id="virtio_nic"></a>
 
