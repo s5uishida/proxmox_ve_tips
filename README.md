@@ -1,5 +1,5 @@
 # Proxmox VE TIPS
-Here are some tips for creating a Proxmox VE VM.
+Here are some tips for creating VMs on a Proxmox VE.
 For more information on performance tweaks, please refer [here](https://pve.proxmox.com/wiki/Performance_Tweaks).
 
 ---
