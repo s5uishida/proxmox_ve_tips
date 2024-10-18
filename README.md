@@ -17,6 +17,7 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 - [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
 - [Selecting the cache type for disk](#select_disk_cache_type)
 - [Selecting the disk format type when creating a VM](#select_disk_format_type)
+- [Filesystem mount option](#mount_opt)
 - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
@@ -70,6 +71,13 @@ Also turn on `SSD emulation`.
 When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
 
 <img src="./images/pve_disk.png" title="./images/pve_disk.png" width=600px></img>
+
+<a id="mount_opt"></a>
+
+## Filesystem mount option
+
+I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
+And not using swap.
 
 <a id="virtio_nic"></a>
 
