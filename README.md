@@ -16,8 +16,8 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 - [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
 - [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
 - [Filesystem mount option](#mount_opt)
-- [Selecting the cache type for disk](#select_disk_cache_type)
 - [Selecting the disk format type when creating a VM](#select_disk_format_type)
+- [Selecting the cache type for disk](#select_disk_cache_type)
 - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
@@ -53,6 +53,14 @@ If an error occurs on VM in related to Secure Boot, try selecting `SeaBIOS` in t
 I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
 And not using swap. Also, I have configured as the same for VMs.
 
+<a id="select_disk_format_type"></a>
+
+## Selecting the disk format type when creating a VM
+
+When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
+
+<img src="./images/pve_disk.png" title="./images/pve_disk.png" width=600px></img>
+
 <a id="select_disk_cache_type"></a>
 
 ## Selecting the cache type for disk
@@ -70,14 +78,6 @@ It is also recommended to turn on the `IO thread`.
 Also turn on `SSD emulation`.
 
 <img src="./images/pve_ssd_cache.png" title="./images/pve_ssd_cache.png" width=500px></img>
-
-<a id="select_disk_format_type"></a>
-
-## Selecting the disk format type when creating a VM
-
-When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
-
-<img src="./images/pve_disk.png" title="./images/pve_disk.png" width=600px></img>
 
 <a id="virtio_nic"></a>
 
