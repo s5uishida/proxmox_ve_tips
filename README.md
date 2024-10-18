@@ -12,19 +12,25 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 
 ## Table of Contents
 
-- [When starting MongoDB, an illegal instruction occurs and MongoDB crashes](#mongodb_crash)
-- [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
-- [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
-- [Filesystem mount option](#mount_opt)
-- [Selecting the disk format type when creating a VM](#select_disk_format_type)
-- [Selecting the cache type for disk](#select_disk_cache_type)
-- [VirtIO paravirtualized NIC](#virtio_nic)
+- [Troubleshooting](#trouble)
+  - [When starting MongoDB, an illegal instruction occurs and MongoDB crashes](#mongodb_crash)
+  - [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
+  - [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
+- [Performance Improvement](#perf_imp)
+  - [Filesystem mount option](#mount_opt)
+  - [Selecting the disk format type when creating a VM](#select_disk_format_type)
+  - [Selecting the cache type for disk](#select_disk_cache_type)
+  - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
 
+<a id="trouble"></a>
+
+## Troubleshooting
+
 <a id="mongodb_crash"></a>
 
-## When starting MongoDB, an illegal instruction occurs and MongoDB crashes
+### When starting MongoDB, an illegal instruction occurs and MongoDB crashes
 
 If an illegal instruction occurs and MongoDB crashes when starting MongoDB, refer to [this](https://github.com/RocketChat/Rocket.Chat/issues/33495) and select `host` as the Type in the `Edit: Processors` dialog to enable AVX instruction for CPU of VM.
 
@@ -32,7 +38,7 @@ If an illegal instruction occurs and MongoDB crashes when starting MongoDB, refe
 
 <a id="srsran_build_crash"></a>
 
-## While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions
+### While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions
 
 If an error occur while building srsRAN Project due to missing F16C, FMA and BMI instructions, select `host` as the Type in the `Edit: Processors` dialog to enable these instructions for CPU of VM.
 
@@ -40,22 +46,26 @@ If an error occur while building srsRAN Project due to missing F16C, FMA and BMI
 
 <a id="error_related_to_secure_boot"></a>
 
-## An error occurs on VM in related to Secure Boot
+### An error occurs on VM in related to Secure Boot
 
 If an error occurs on VM in related to Secure Boot, try selecting `SeaBIOS` in the `Edit: BIOS` dialog.
 
 <img src="./images/pve_edit_bios.png" title="./images/pve_edit_bios.png" width=250px></img>
 
+<a id="perf_imp"></a>
+
+## Performance Improvement
+
 <a id="mount_opt"></a>
 
-## Filesystem mount option
+### Filesystem mount option
 
 I have added `noatime` to the mount option of SSD storages in a Proxmox VE machine.
 And not using swap. Also, I have configured as the same for VMs.
 
 <a id="select_disk_format_type"></a>
 
-## Selecting the disk format type when creating a VM
+### Selecting the disk format type when creating a VM
 
 When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
 
@@ -63,7 +73,7 @@ When creating a VM, the disk format type `Raw disk image (raw)` is a little fast
 
 <a id="select_disk_cache_type"></a>
 
-## Selecting the cache type for disk
+### Selecting the cache type for disk
 
 For the cache type of disk, `Write back` for HDD is a little faster than `Write back (unsafe)`.
 `Write back (unsafe)` for SSD is a little faster than `Write back`.
@@ -81,7 +91,7 @@ Also turn on `SSD emulation`.
 
 <a id="virtio_nic"></a>
 
-## VirtIO paravirtualized NIC
+### VirtIO paravirtualized NIC
 
 For maximum performance, a VirtIO paravirtualized NIC is recommended.
 You may use the network with DPDK and XDP on a Linux OS that supports VirtIO.
