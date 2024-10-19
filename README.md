@@ -75,7 +75,7 @@ When creating a VM, the disk format type `Raw disk image (raw)` is a little fast
 
 ### Selecting the cache type for disk
 
-For the cache type of disk, `Write back` for HDD is a little faster than `Write back (unsafe)`.
+According to [this](https://qiita.com/disksystem/items/b18412a69fdbf2fac0fc) (in Japanese), with regard to the cache type of disk, `Write back` for HDD is a little faster than `Write back (unsafe)`.
 `Write back (unsafe)` for SSD is a little faster than `Write back`.
 It is also recommended to turn on the `IO thread`.
 
