@@ -19,7 +19,7 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 - [Performance Improvement](#perf_imp)
   - [Filesystem mount option](#mount_opt)
   - [Selecting the disk format type when creating a VM](#select_disk_format_type)
-  - [Selecting the cache type for disk](#select_disk_cache_type)
+  - [Selecting the cache type of disk](#select_disk_cache_type)
   - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
@@ -73,7 +73,7 @@ When creating a VM, the disk format type `Raw disk image (raw)` is a little fast
 
 <a id="select_disk_cache_type"></a>
 
-### Selecting the cache type for disk
+### Selecting the cache type of disk
 
 According to [this](https://qiita.com/disksystem/items/b18412a69fdbf2fac0fc) (in Japanese), with regard to the cache type of disk, `Write back` for HDD is a little faster than `Write back (unsafe)`.
 `Write back (unsafe)` for SSD is a little faster than `Write back`.
