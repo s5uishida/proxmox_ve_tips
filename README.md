@@ -18,7 +18,7 @@ For more information on performance tweaks, please refer [here](https://pve.prox
   - [An error occurs on VM in related to Secure Boot](#error_related_to_secure_boot)
 - [Performance Improvement](#perf_imp)
   - [Filesystem mount option](#mount_opt)
-  - [Selecting the disk format type when creating a VM](#select_disk_format_type)
+  - [Selecting the format type of disk when creating a VM](#select_disk_format_type)
   - [Selecting the cache type of disk](#select_disk_cache_type)
   - [VirtIO paravirtualized NIC](#virtio_nic)
 
@@ -65,9 +65,9 @@ And not using swap. Also, I have configured as the same for VMs.
 
 <a id="select_disk_format_type"></a>
 
-### Selecting the disk format type when creating a VM
+### Selecting the format type of disk when creating a VM
 
-When creating a VM, the disk format type `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
+When creating a VM, the format type of disk `Raw disk image (raw)` is a little faster than `QEMU image format (qcow2)`.
 
 <img src="./images/pve_disk.png" title="./images/pve_disk.png" width=600px></img>
 
