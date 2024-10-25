@@ -99,9 +99,9 @@ For example, you may use N3 and N6 interfaces with [UPG-VPP](https://github.com/
 
 A quick measurement using iperf3  on a VirtIO network between two Ubuntu 24.04 VMs on a Proxmox VE machine with an Intel Core-i5 10400 CPU showed the following results:
 
-| 1) TCP<br>throughput | 2) UDP<br>throughput | 2) UDP<br>packet loss | 3) RTT<br>(msec) |
-| --- | --- | --- | --- |
-| S:25.6 Gbps<br>R:25.5 Gbps | S:2.99 Gbps<br>R:2.83 Gbps | 6.9 % | 0.260 |
+| A--B | 1) TCP<br>throughput | 2) UDP<br>throughput | 2) UDP<br>packet loss | 3) RTT<br>(msec) |
+| --- | --- | --- | --- | --- |
+| 192.168.16.151 -- 192.168.16.152<br>&nbsp;Ubuntu 24.04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ubuntu 24.04 | S:25.6 Gbps<br>R:25.5 Gbps | S:2.99 Gbps<br>R:2.83 Gbps | 6.9 % | 0.260 |
 
 <details><summary>1. iperf3 -c 192.168.16.152</summary>
 
