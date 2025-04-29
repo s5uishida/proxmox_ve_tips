@@ -45,6 +45,10 @@ The following example sets `setageing` of the bridge interface `vmbr3` of a Prox
 ```
 # brctl setageing vmbr3 0
 ```
+If you want to disable the forwarding delay, please make the following additional settings.
+```
+# brctl setfd vmbr3 0
+```
 **On VM**  
 ```
 # ip link set ens20 promisc on
