@@ -41,11 +41,11 @@ Then, enable promiscuous mode of the VM NIC linked to the bridge interface.
 
 The following example sets `setageing` of the bridge interface `vmbr3` of a Proxmox VE machine to zero and enables promiscuous mode of the VM NIC `ens20` linked to `vmbr3`.
 
-On Proxmox VE machine)
+**On Proxmox VE machine**  
 ```
 # brctl setageing vmbr3 0
 ```
-On VM)
+**On VM**  
 ```
 # ip link set ens20 promisc on
 ```
