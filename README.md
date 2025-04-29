@@ -12,6 +12,8 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 
 ## Table of Contents
 
+- [Networking](#networking)
+  - [How to enable promiscuous mode of a NIC on a VM](#enable_promisc)
 - [Troubleshooting](#trouble)
   - [When starting MongoDB, an illegal instruction occurs and MongoDB crashes](#mongodb_crash)
   - [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
@@ -23,6 +25,30 @@ For more information on performance tweaks, please refer [here](https://pve.prox
   - [VirtIO paravirtualized NIC](#virtio_nic)
 
 ---
+
+<a id="networking"></a>
+
+## Networking
+
+<a id="enable_promisc"></a>
+
+### How to enable promiscuous mode of a NIC on a VM
+
+To verify packets on a network, it is useful to enable promiscuous mode of the NIC connected to that network on another VM and capture packets.
+
+First, for the bridge interfaces of a Proxmox VE machine linked to the NIC of the VM for which you want to enable promiscuous mode, set the retention time of learned MAC addresses to zero so that it acts as a repeater HUB.
+Then, enable promiscuous mode of the VM NIC linked to the bridge interface.
+
+The following example sets `setageing` of the bridge interface `vmbr3` of a Proxmox VE machine to zero and enables promiscuous mode of the VM NIC `ens20` linked to `vmbr3`.
+
+On Proxmox VE machine)
+```
+# brctl setageing vmbr3 0
+```
+On VM)
+```
+# ip link set ens20 promisc on
+```
 
 <a id="trouble"></a>
 
