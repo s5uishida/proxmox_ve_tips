@@ -45,7 +45,7 @@ The following example sets `setageing` of the bridge interface `vmbr3` of a Prox
 ```
 # brctl setageing vmbr3 0
 ```
-If you want to disable the forwarding delay, please make the following additional settings.
+If you want to disable the forwarding delay, please make the following additional setting.
 ```
 # brctl setfd vmbr3 0
 ```
