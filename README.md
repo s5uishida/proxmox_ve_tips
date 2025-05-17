@@ -54,7 +54,7 @@ If you want to disable the forwarding delay, please make the following additiona
 # ip link set ens20 promisc on
 ```
 Then, you will be able to use `tcpdump` or `tshark` to capture packets which destinations are not just the MAC addresses of the interfaces on the VM.
-Also, with `tshark` you may specify multiple interfaces as the following example.
+Also, with `tshark` you may use multiple interfaces as the following example.
 ```
 # tshark -i ens20 -i ens21 -w output.pcap
 ```
