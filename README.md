@@ -14,6 +14,7 @@ For more information on performance tweaks, please refer [here](https://pve.prox
 
 - [Networking](#networking)
   - [How to enable promiscuous mode of a network interface on a VM](#enable_promisc)
+  - [Linux Bridge and VM MTU Configuration for 5G CN on Proxmox VE 9.2](#mtu_pve_92)
 - [Troubleshooting](#trouble)
   - [When starting MongoDB, an illegal instruction occurs and MongoDB crashes](#mongodb_crash)
   - [While building srsRAN_Project, an error occurs due to missing F16C, FMA and BMI instructions](#srsran_build_crash)
@@ -58,6 +59,36 @@ Also, with `tshark` you may use multiple network interfaces as the following exa
 ```
 # tshark -i ens20 -i ens21 -w output.pcap
 ```
+
+<a id="mtu_pve_92"></a>
+
+### Linux Bridge and VM MTU Configuration for 5G CN on Proxmox VE 9.2
+
+In my environment, the MTU for the Proxmox VE 9.2 host's Linux Bridges is configured as follows.
+
+| Interface | Linux Bridge | MTU |
+| --- | --- | --- |
+| N3 | vmbr3 | 9000 |
+| N4 | vmbr4 | 9000 |
+| N6 | vmbr6 | 9000 |
+
+I have configured the MTU for each VM's interface as follows.
+
+| Interface | MTU |
+| --- | --- |
+| N3 | 1500 |
+| N4 | 1500 |
+| N6 | 1500 |
+
+However, for the interface of the UPG-VPP (DPDK/VPP) VM, its MTU is set as follows.
+
+| Interface | MTU |
+| --- | --- |
+| N3 | `Same as bridge` |
+| N4 | `Same as bridge` |
+| N6 | `Same as bridge` |
+
+Since the Linux Bridge MTU is set to 9000 above, the interface MTU automatically becomes 9000 in this case.
 
 <a id="trouble"></a>
 
